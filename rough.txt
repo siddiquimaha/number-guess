@@ -1,0 +1,47 @@
+  /* @media (min-width: 768px) {
+    .game-container {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .game-container {
+      width: 70%;
+    }
+    h1{
+      font-size: 24px;
+    }
+    p{
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 355px) {
+    p{
+      font-size: 14px;
+    }
+  } */
+
+  //method no 1
+  
+const userInput = document.getElementById("userInput");
+let msgBox = document.querySelector(".msg-para");
+let attempts = 0;
+let answer = 50;
+
+const initializeGame = () => {
+    const userGuess = parseInt(userInput.value);
+    attempts++;
+
+    if (userGuess > 100 && userGuess < 1) {
+        msgBox.innerText = "plz input valid number";
+    } else if (userGuess < answer) {
+        msgBox.innerText = "too low ";
+    } else if (userGuess > answer) {
+        msgBox.innerText = "too high ";
+    } else if (userGuess === answer) {
+        msgBox.innerText = `congratuations you guess the right number${answer} and you attempt ${attempts}`;
+    } else{
+        msgBox.innerText = "try again";
+    }
+};
